@@ -49,7 +49,7 @@ public class CardVideoActivity extends AppCompatActivity implements DialogInterf
     private YTServerAPI mServer;
     public Dialog mLoading;//进度条
     private Handler mHandler;
-    private String rawArgs;
+    private int rawArgs=-1;
 
     @Override
     protected void onStart() {
@@ -134,7 +134,7 @@ public class CardVideoActivity extends AppCompatActivity implements DialogInterf
         mPicButton = (Button) findViewById(R.id.startPic);
         mWarningText = (TextView) findViewById(R.id.warningText);
         mErrorText = (TextView) findViewById(R.id.errorText);
-        rawArgs=getIntent().getStringExtra("rawArgs");
+        rawArgs=Integer.parseInt(getIntent().getStringExtra("rawArgs"));
 
         //拍照按钮点击事件
         mPicButton.setOnClickListener(new View.OnClickListener() {
@@ -209,18 +209,18 @@ public class CardVideoActivity extends AppCompatActivity implements DialogInterf
             @Override
             public void run() {
                 try {
-                    Timber.e(rawArgs);
+                    Timber.e(""+rawArgs);
                     switch (rawArgs) {
-                        case "0"://身份证识别
+                        case 0://身份证识别
                             mServer.idCardOcr(BitmapUtil.getImage(imageUrl), 0);
                             break;
-                        case "1":
+                        case 1:
                             mServer.driverlicenseocr(BitmapUtil.getImage(imageUrl), 1);//0表示行驶证识别，1表示驾驶证识别
                             break;
-                        case "2":
+                        case 2:
                             mServer.driverlicenseocr(BitmapUtil.getImage(imageUrl), 0);//0表示行驶证识别，1表示驾驶证识别
                             break;
-                        case "3"://车牌号识别
+                        case 3://车牌号识别
                             mServer.plateocrCar(BitmapUtil.getImage(imageUrl));
                             break;
                     }
