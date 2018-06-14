@@ -27,6 +27,8 @@ import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 
+import timber.log.Timber;
+
 /**
  * ================================================================
  * 创建时间：2018-6-8 16:52:07
@@ -207,6 +209,7 @@ public class CardVideoActivity extends AppCompatActivity implements DialogInterf
             @Override
             public void run() {
                 try {
+                    Timber.e(rawArgs);
                     switch (rawArgs) {
                         case "0"://身份证识别
                             mServer.idCardOcr(BitmapUtil.getImage(imageUrl), 0);
