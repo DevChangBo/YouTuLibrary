@@ -134,7 +134,8 @@ public class CardVideoActivity extends AppCompatActivity implements DialogInterf
         mPicButton = (Button) findViewById(R.id.startPic);
         mWarningText = (TextView) findViewById(R.id.warningText);
         mErrorText = (TextView) findViewById(R.id.errorText);
-        rawArgs=Integer.parseInt(getIntent().getStringExtra("rawArgs"));
+        String raw=getIntent().getStringExtra("rawArgs").toString();
+        rawArgs=Integer.parseInt(raw);
 
         //拍照按钮点击事件
         mPicButton.setOnClickListener(new View.OnClickListener() {
