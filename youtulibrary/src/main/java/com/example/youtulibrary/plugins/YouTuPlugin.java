@@ -39,7 +39,7 @@ import timber.log.Timber;
 public class YouTuPlugin extends CordovaPlugin{
     public SweetAlertDialog mDialog;//对话框
 //    private static YouTuPlugin mPlugin; // TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  1
-    private static Activity mActivity;//super.cordova.getActivity();
+    private  Activity mActivity;//super.cordova.getActivity();
     private CallbackContext callbackContext;
 
 //    // TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  2
@@ -57,7 +57,7 @@ public class YouTuPlugin extends CordovaPlugin{
             return false;
         }
         this.callbackContext=callbackContext;
-        mActivity = cordova.getActivity();// TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  3
+        mActivity = super.cordova.getActivity();// TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  3
         //获取相关权限
         Observable.create(e -> e.onNext("")).observeOn(AndroidSchedulers.mainThread())
                 .subscribeOn(AndroidSchedulers.mainThread())
