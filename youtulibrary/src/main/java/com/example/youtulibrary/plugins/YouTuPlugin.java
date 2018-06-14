@@ -103,7 +103,7 @@ public class YouTuPlugin extends CordovaPlugin{
      * @param requestCode
      */
     private void startActivityForResult(Intent mIntent, int requestCode) {
-        mActivity.startActivityForResult(mIntent, requestCode);
+        cordova.startActivityForResult(this,mIntent, requestCode);
     }
 
 
