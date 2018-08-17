@@ -8,9 +8,9 @@ import android.util.Log;
 
 import com.example.youtulibrary.YouTuConfig;
 import com.example.youtulibrary.facein.CardVideoActivity;
-import com.jess.arms.utils.DialogUtils;
-import com.jess.arms.utils.PermissionUtil;
-import com.jess.arms.widget.dialog.SweetAlertDialog;
+import com.cbjess.arms.utils.DialogUtils;
+import com.cbjess.arms.utils.PermissionUtil;
+import com.cbjess.arms.widget.dialog.SweetAlertDialog;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import org.apache.cordova.CallbackContext;
@@ -20,11 +20,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 import io.reactivex.Observable;
-import io.reactivex.ObservableEmitter;
-import io.reactivex.ObservableOnSubscribe;
-import io.reactivex.Observer;
 import io.reactivex.android.schedulers.AndroidSchedulers;
-import io.reactivex.disposables.Disposable;
 import me.jessyan.rxerrorhandler.core.RxErrorHandler;
 import timber.log.Timber;
 
@@ -39,15 +35,15 @@ import timber.log.Timber;
 public class YouTuPlugin extends CordovaPlugin{
     public SweetAlertDialog mDialog;//对话框
 //    private static YouTuPlugin mPlugin; // TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  1
-    private  Activity mActivity;//super.cordova.getActivity();
+    private static Activity mActivity;//super.cordova.getActivity();
     private CallbackContext callbackContext;
 
-//    // TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  2
-//    public static YouTuPlugin getInstance(Activity mActivity1){
-//                mActivity = mActivity1;
-//        if (mPlugin == null) mPlugin = new YouTuPlugin();
-//        return mPlugin;
-//    }
+/*    // TODO: 2017/12/18 测试、正式版本需要注释/反注释的代码  ----------  2
+    public static YouTuPlugin getInstance(Activity mActivity1){
+                mActivity = mActivity1;
+        if (mPlugin == null) mPlugin = new YouTuPlugin();
+        return mPlugin;
+    }*/
 
     @Override
     public boolean execute(String action, String rawArgs, CallbackContext callbackContext) throws JSONException {
@@ -103,7 +99,9 @@ public class YouTuPlugin extends CordovaPlugin{
      * @param requestCode
      */
     private void startActivityForResult(Intent mIntent, int requestCode) {
+        // TODO: 2017/12/18 测试、正式版本需要将下面两行代码注释/反注释的代码  ----------  3
         cordova.startActivityForResult(this,mIntent, requestCode);
+//        mActivity.startActivityForResult(mIntent, requestCode);
     }
 
 

@@ -18,7 +18,7 @@ import com.example.youtulibrary.YouTuConfig;
 import com.example.youtulibrary.common.BitmapUtil;
 import com.example.youtulibrary.common.FileUtil;
 import com.example.youtulibrary.common.YTServerAPI;
-import com.jess.arms.utils.DialogUtils;
+import com.cbjess.arms.utils.DialogUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;

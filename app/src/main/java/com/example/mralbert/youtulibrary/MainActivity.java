@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Toast;
 
 
 import com.example.youtulibrary.YouTuConfig;
@@ -27,49 +28,49 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        findViewById(R.id.bt_button1).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    YouTuPlugin.getInstance(MainActivity.this).execute("","0",null);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        findViewById(R.id.bt_button2).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    YouTuPlugin.getInstance(MainActivity.this).execute("","1",null);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        findViewById(R.id.bt_button3).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    YouTuPlugin.getInstance(MainActivity.this).execute("","2",null);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
-//
-//        findViewById(R.id.bt_button4).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                try {
-//                    YouTuPlugin.getInstance(MainActivity.this).execute("","3",null);
-//                } catch (JSONException e) {
-//                    e.printStackTrace();
-//                }
-//            }
-//        });
+        findViewById(R.id.bt_button1).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    YouTuPlugin.getInstance(MainActivity.this).execute("","0",null);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        findViewById(R.id.bt_button2).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    YouTuPlugin.getInstance(MainActivity.this).execute("","1",null);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        findViewById(R.id.bt_button3).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    YouTuPlugin.getInstance(MainActivity.this).execute("","2",null);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+
+        findViewById(R.id.bt_button4).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    YouTuPlugin.getInstance(MainActivity.this).execute("","3",null);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 
 
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == YouTuConfig.REQUEST_CODE_HOME_TAKECAMERA
                 && resultCode == YouTuConfig.REQUEST_CODE_HOME_TAKECAMERA) {
             String responseBody=intent.getStringExtra("responseBody");
+            Toast.makeText(this,responseBody, Toast.LENGTH_LONG ).show();
             Log.d("responseBody",responseBody);
         }
     }
